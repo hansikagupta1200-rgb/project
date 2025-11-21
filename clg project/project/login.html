@@ -3,47 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login / Sign Up page</title>
+    <title>Welcome Back</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="card-container">
+        <h2 class="title">Welcome Back!</h2>
 
-    <div class="container">
-        <div class="form-toggle">
-            <button id="login-toggle" class="active">Login</button>
-            <button id="signup-toggle">Sign Up</button>
+        <div class="tab-selector">
+            <button class="tab active" data-form="login">Log In</button>
+            <button class="tab" data-form="signup">Sign Up</button>
         </div>
 
-        <form id="login-form" class="form active" onsubmit="handleFormSubmission(event, 'Login')">
-            <h2>Login</h2>
-            <div class="input-group">
-                <label for="login-email">Email:</label>
-                <input type="email" id="login-email" required>
-            </div>
-            <div class="input-group">
-                <label for="login-password">Password:</label>
-                <input type="password" id="login-password" required>
-            </div>
+        <form id="login-form" class="form-body active-form">
+            <label for="login-email">Email address</label>
+            <input type="email" id="login-email" placeholder="you@example.com" required>
+
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="********" required>
+
             <button type="submit" class="submit-btn">Log In</button>
+
+            <p class="forgot-password">
+                Forgot your password? <a href="#">Reset Here</a>
+            </p>
         </form>
 
-        <form id="signup-form" class="form" onsubmit="handleFormSubmission(event, 'Sign Up')">
-            <h2>Sign Up</h2>
-            <div class="input-group">
-                <label for="signup-username">Username:</label>
-                <input type="text" id="signup-username" required>
-            </div>
-            <div class="input-group">
-                <label for="signup-email">Email:</label>
-                <input type="email" id="signup-email" required>
-            </div>
-            <div class="input-group">
-                <label for="signup-password">Password:</label>
-                <input type="password" id="signup-password" required>
-            </div>
-            <button type="submit" class="submit-btn">Register</button>
-        </form>
+        <form id="signup-form" class="form-body hidden-form">
+            <label for="signup-username">Username</label>
+            <input type="text" id="signup-username" placeholder="e.g., JaneDoe123" required>
 
+            <label for="signup-email">Email address</label>
+            <input type="email" id="signup-email" placeholder="you@example.com" required>
+            
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" placeholder="********" required>
+
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" placeholder="********" required>
+
+            <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+    </div>
+
+    <!-- Popup Notification -->
+    <div id="popup" class="popup">
+        <p id="popup-text"></p>
     </div>
 
     <script src="script.js"></script>
